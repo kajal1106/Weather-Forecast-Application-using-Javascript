@@ -1,0 +1,422 @@
+<html>
+<title>Weather Forecast</title>
+
+<head>
+    <link rel="stylesheet" href="style_compare.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    
+</head>
+
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html"><i  class="fa fa-fw fa-home"></i> Home</a>
+    <a href="Charts.html"><i class=" far fa-chart-bar" ></i> Weather Charts</a>
+    <a href="CompareCity.html"><i class="far fa-clone"></i> Comparison</a>
+</div>
+<!-- Hambuger Menu bar -->
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "220px";
+        document.getElementById("searchContainer").style.marginLeft = "230px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("searchContainer").style.marginLeft = "0";
+    }
+</script>
+<!-- Hambuger Menu bar -->
+
+
+<div id="searchContainer">
+  <button class="openbtn" onclick="openNav()" id="toggleMenu">☰</button>
+  <h3>MyWeather</h3>
+  
+</div>
+<div id="cardBox">
+  <div id="searchContainer1">
+    <input class="searchControl" value="Athlone" type="text" placeholder="City Name" id="searchInput">
+    <button class="searchControl1" id="searchBtn">Search</button>
+  </div>
+       <div id="weatherContainer">
+        <div id="weatherDescription">
+            <div class="agileinfo-top-time">
+                <div class="date-time">
+                    <div class="dmy">
+                        <div id="txt"></div>
+                        <div class="date">
+                            <!-- Date-JavaScript -->
+                            <script type="text/javascript">
+                                var mydate = new Date()
+                                var year = mydate.getYear()
+                                if (year < 1000)
+                                    year += 1900
+                                var day = mydate.getDay()
+                                var month = mydate.getMonth()
+                                var daym = mydate.getDate()
+                                if (daym < 10)
+                                    daym = "0" + daym
+                                var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+                                    "Friday", "Saturday")
+                                var montharray = new Array("January", "February", "March", "April", "May", "June",
+                                    "July", "August", "September", "October", "November", "December")
+                                document.write("" + dayarray[day] + ", " + montharray[month] + " " + daym + ", " +
+                                    year + "")
+                            </script>
+                            <!-- //Date-JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="location">
+                <div> <img src="location.png" height="30px" width="30px"></div>
+                <div id="cityL">
+                    <h1 id="cityHeader"></h1>
+                </div>
+            </div>
+            <div id="weatherMain">
+                <div id="temperature"></div>
+                <div id="weatherDescriptionHeader"></div>
+                <div><img id="documentIconImg"></div>
+                <hr>
+            </div>
+            <div id="weatherMiddle">
+                <div id="row">
+                    <div id="sunrise" class="middle-details">
+                        <img id="sunriseIcon" height="30px" width="30px">
+                        <span id="sunriseData" class="medium-details"></span>
+                    </div>
+                    <div id="sunset" class="middle-details">
+                        <img id="sunsetIcon" height="30px" width="30px">
+                        <span id="sunsetData" class="medium-details"></span>
+                    </div>
+                </div>
+                <div id="row">
+                    <div id="windSpeed" class="bottom-details">
+                        <img id="windIcon" height="30px" width="30px">
+                        <span id="windData" class="bottom-details"></span>
+                    </div>
+                    <div id="humidity" class="bottom-details">
+                        <img id="humidIcon" height="30px" width="30px">
+                        <span id="humidData" class="bottom-details"></span>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <hr style="margin-top:15px;">
+            </div>
+        </div>
+        <div id="searchForecast">
+            <h3>Tomorrow's Weather</h3>
+            <div id="weatherHourly">
+                <div id="weatherHourly1">
+                    <div id="time">12AM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly2">
+                    <div id="time">3AM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly3">
+                    <div id="time">6AM </div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly4">
+                    <div id="time">9AM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly5">
+                    <div id="time">12PM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly6">
+                    <div id="time">3PM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly7">
+                    <div id="time">6PM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+                <div id="weatherHourly8">
+                    <div id="time">9PM</div>
+                    <div id="iconDiv"><img id="forecastIcon"></div>
+                    <div id="temperaturecurr"></div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="weather-bottom2">
+          <div class="ac-container">
+              <input id="ac-1" type="checkbox" />
+              <label for="ac-1" class="grid1" onClick="showHideDiv()"> Week ▼ </label>
+              <article class="ac-small">
+                  <div class="wthree-grids">
+                      <div class="wthree-grids-row">
+                          <ul class="top">
+                              <li id="wthree-day"></li>
+                              <li class="wthree-img"><img id="weatherIconImg"> </li>
+                              <li class="wthree-temp" id="min-temp"></li>
+                              <li class="wthree-temp" id="max-temp"></li>
+                          </ul>
+                          <div class="clear"> </div>
+                      </div>
+                      <div class="wthree-grids-row">
+                          <ul>
+                              <li id="wthree-day1"></li>
+                              <li class="wthree-img"><img id="weatherIconImg1" /> </li>
+                              <li class="wthree-temp" id="min-temp1"> </li>
+                              <li class="wthree-temp" id="max-temp1"></li>
+                          </ul>
+                          <div class="clear"> </div>
+                      </div>
+                      <div class="wthree-grids-row">
+                          <ul>
+                              <li id="wthree-day2"></li>
+                              <li class="wthree-img"><img id="weatherIconImg2" /> </li>
+                              <li class="wthree-temp" id="min-temp2"> </li>
+                              <li class="wthree-temp" id="max-temp2"></li>
+                          </ul>
+                          <div class="clear"> </div>
+                      </div>
+                      <div class="wthree-grids-row">
+                          <ul>
+                              <li id="wthree-day3"></li>
+                              <li class="wthree-img"><img id="weatherIconImg3" /> </li>
+                              <li class="wthree-temp" id="min-temp3"></li>
+                              <li class="wthree-temp" id="max-temp3"> </li>
+                          </ul>
+                          <div class="clear"> </div>
+                      </div>
+                      <div class="wthree-grids-row">
+                          <ul>
+                              <li id="wthree-day4"></li>
+                              <li class="wthree-img"><img id="weatherIconImg4" /> </li>
+                              <li class="wthree-temp" id="min-temp4"> </li>
+                              <li class="wthree-temp" id="max-temp4"> </li>
+                          </ul>
+                          <div class="clear"> </div>
+                      </div>
+                      <div class="wthree-grids-row">
+                          <ul>
+                              <li id="wthree-day5"> </li>
+                              <li class="wthree-img"><img id="weatherIconImg5" /> </li>
+                              <li class="wthree-temp" id="min-temp5"> </li>
+                              <li class="wthree-temp" id="max-temp5"> </li>
+                          </ul>
+                          <div class="clear"> </div>
+
+
+                      </div>
+                  </div>
+              </article>
+          </div>
+      </div>
+    </div>
+
+
+           <!-- card 2 starts here... -->
+
+           <div id="searchContainer2">
+              <input class="searchControl2" value="Athlone" type="text" placeholder="City Name" id="searchInput1">
+              <button class="searchControl3" id="searchBtn">Search</button>
+            </div>
+           
+                 <div id="weatherContainer2">
+                  <div id="weatherDescription">
+                      <div class="agileinfo-top-time">
+                          <div class="date-time">
+                              <div class="dmy">
+                                  <div id="txt"></div>
+                                  <div class="date">
+                                      <!-- Date-JavaScript -->
+                                      <script type="text/javascript">
+                                          var mydate = new Date()
+                                          var year = mydate.getYear()
+                                          if (year < 1000)
+                                              year += 1900
+                                          var day = mydate.getDay()
+                                          var month = mydate.getMonth()
+                                          var daym = mydate.getDate()
+                                          if (daym < 10)
+                                              daym = "0" + daym
+                                          var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+                                              "Friday", "Saturday")
+                                          var montharray = new Array("January", "February", "March", "April", "May", "June",
+                                              "July", "August", "September", "October", "November", "December")
+                                          document.write("" + dayarray[day] + ", " + montharray[month] + " " + daym + ", " +
+                                              year + "")
+                                      </script>
+                                      <!-- //Date-JavaScript -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div id="location">
+                          <div> <img src="location.png" height="30px" width="30px"></div>
+                          <div id="cityL">
+                              <h1 id="cityHeader"></h1>
+                          </div>
+                      </div>
+                      <div id="weatherMain">
+                          <div id="temperature"></div>
+                          <div id="weatherDescriptionHeader"></div>
+                          <div><img id="documentIconImg"></div>
+                          <hr>
+                      </div>
+                      <div id="weatherMiddle">
+                          <div id="row">
+                              <div id="sunrise" class="middle-details">
+                                  <img id="sunriseIcon" src="" height="30px" width="30px">
+                                  <span id="sunriseData" class="medium-details"></span>
+                              </div>
+                              <div id="sunset" class="middle-details">
+                                  <img id="sunsetIcon" height="30px" width="30px">
+                                  <span id="sunsetData" class="medium-details"></span>
+                              </div>
+                          </div>
+                          <div id="row">
+                              <div id="windSpeed" class="bottom-details">
+                                  <img id="windIcon" height="30px" width="30px">
+                                  <span id="windData" class="bottom-details"></span>
+                              </div>
+                              <div id="humidity" class="bottom-details">
+                                  <img id="humidIcon" height="30px" width="30px">
+                                  <span id="humidData" class="bottom-details"></span>
+                              </div>
+                          </div>
+                          <div class="clr"></div>
+                          <hr style="margin-top:15px;">
+                      </div>
+                  </div>
+                  <div id="searchForecast">
+                      <h3>Tomorrow's Weather</h3>
+                      <div id="weatherHourly">
+                          <div id="weatherHourly1">
+                              <div id="time">12AM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly2">
+                              <div id="time">3AM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly3">
+                              <div id="time">6AM </div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly4">
+                              <div id="time">9AM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly5">
+                              <div id="time">12PM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly6">
+                              <div id="time">3PM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly7">
+                              <div id="time">6PM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                          <div id="weatherHourly8">
+                              <div id="time">9PM</div>
+                              <div id="iconDiv"><img id="forecastIcon"></div>
+                              <div id="temperaturecurr"></div>
+                          </div>
+                      </div>
+                      <hr>
+                  </div>
+                  <div class="weather-bottom2">
+                    <div class="ac-container">
+                        <input id="ac-1" type="checkbox" />
+                        <label for="ac-1" class="grid1" onClick="showHideDiv()"> Week ▼ </label>
+                        <article class="ac-small">
+                            <div class="wthree-grids">
+                                <div class="wthree-grids-row">
+                                    <ul class="top">
+                                        <li id="wthree-day"></li>
+                                        <li class="wthree-img"><img id="weatherIconImg"> </li>
+                                        <li class="wthree-temp" id="min-temp"></li>
+                                        <li class="wthree-temp" id="max-temp"></li>
+                                    </ul>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="wthree-grids-row">
+                                    <ul>
+                                        <li id="wthree-day1"></li>
+                                        <li class="wthree-img"><img id="weatherIconImg1" /> </li>
+                                        <li class="wthree-temp" id="min-temp1"> </li>
+                                        <li class="wthree-temp" id="max-temp1"></li>
+                                    </ul>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="wthree-grids-row">
+                                    <ul>
+                                        <li id="wthree-day2"></li>
+                                        <li class="wthree-img"><img id="weatherIconImg2" /> </li>
+                                        <li class="wthree-temp" id="min-temp2"> </li>
+                                        <li class="wthree-temp" id="max-temp2"></li>
+                                    </ul>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="wthree-grids-row">
+                                    <ul>
+                                        <li id="wthree-day3"></li>
+                                        <li class="wthree-img"><img id="weatherIconImg3" /> </li>
+                                        <li class="wthree-temp" id="min-temp3"></li>
+                                        <li class="wthree-temp" id="max-temp3"> </li>
+                                    </ul>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="wthree-grids-row">
+                                    <ul>
+                                        <li id="wthree-day4"></li>
+                                        <li class="wthree-img"><img id="weatherIconImg4" /> </li>
+                                        <li class="wthree-temp" id="min-temp4"> </li>
+                                        <li class="wthree-temp" id="max-temp4"> </li>
+                                    </ul>
+                                    <div class="clear"> </div>
+                                </div>
+                                <div class="wthree-grids-row">
+                                    <ul>
+                                        <li id="wthree-day5"> </li>
+                                        <li class="wthree-img"><img id="weatherIconImg5" /> </li>
+                                        <li class="wthree-temp" id="min-temp5"> </li>
+                                        <li class="wthree-temp" id="max-temp5"> </li>
+                                    </ul>
+                                    <div class="clear"> </div>
+          
+          
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+              </div>
+    
+  </div>
+
+
+
+        <script src="JS/compare.js"></script>
+        <script src="JS/script1.js"></script>
+
+    </body>
+
+</html>

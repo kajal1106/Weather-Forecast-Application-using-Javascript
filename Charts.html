@@ -1,0 +1,81 @@
+<html>
+<title>Weather Forecast</title>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="index.html"><i  class="fa fa-fw fa-home"></i> Home</a>
+        <a href="Charts.html"><i id="flipCard" class=" far fa-chart-bar" onclick="this.classList.toggle('hover');"></i> Weather Charts</a>
+        <a href="CompareCity.html"><i class="far fa-clone"></i> Comparison</a>
+    </div>
+    <!-- Hambuger Menu bar -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "220px";
+            document.getElementById("searchContainer").style.marginLeft = "230px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("searchContainer").style.marginLeft = "0";
+        }
+    </script>
+    <!-- Hambuger Menu bar -->
+
+    <div id="searchContainer">
+            <button class="openbtn" onclick="openNav()" id="toggleMenu">☰</button>
+            <h3>MyWeather</h3>
+            <input class="searchControl" idvalue="Athlone" type="text" placeholder="City Name or Zipcode" id="searchInput">
+            <button class="searchControl1" id="searchBtn">Search</button>
+        </div>
+        <div id="toggle">
+            <label class="switch">
+                <input id="switchToggle" class="switch-input" type="checkbox" onchange="searchWeather()" />
+                <span class="switch-label" Celcius="°C" Fahrenheit="°F"></span>
+                <span class="switch-handle"></span>
+            </label>
+        </div>
+    
+                           
+
+
+    <div id=chartMain>
+        
+    </div>
+    <script src="JS/script1.js"></script>
+        <script src="JS/chart.js"></script>
+    
+        <!--  Time-JavaScript -->
+        <script>
+            function startTime() {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                // document.getElementById('txt').innerHTML =
+                    h + ":" + m + ":" + s;
+                var t = setTimeout(startTime, 500);
+            }
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i
+                };
+                return i;
+            }
+        </script>
+        <!-- //Time-JavaScript -->
+
+       
+
+</body>
+
+</html>
